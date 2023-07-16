@@ -35,9 +35,8 @@ const Navbar = () => {
       {/* mobile view */}
       <div className="grid grid-cols-2 z-10 fixed md:fixed w-full bg-white md:hidden">
         <span className="text-[43px] font-semibold px-[24px] py-[47px]">
-          Notes
+        <Link href={"/"}>Notes</Link>
         </span>
-
         <Search />
       </div>
 
