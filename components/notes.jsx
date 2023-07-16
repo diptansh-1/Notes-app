@@ -48,8 +48,7 @@ const Notes = () => {
 
       if (response.status === 200) {
         // Note deleted successfully, update the data
-        const updatedData = data.filter((item) => item._id !== id);
-        setData(updatedData);
+        setDeletedNoteId(id);
         toast.success("Note deleted successfully", {
           position: "top-center",
           autoClose: 500,
