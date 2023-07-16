@@ -29,7 +29,7 @@ const Addnote = () => {
 
   return (
     <>
-      <div className="self-end justify-self-end h-20 mb-6 fixed md:hidden">
+      <div className="self-end justify-self-end h-20 mb-6 fixed">
         <motion.div
           animate={{ rotate: phonerotation }}
           transition={{ duration: 0.5 }}
