@@ -85,6 +85,9 @@ const Notes = () => {
       <div className="hidden md:flex">
         <Search onChange={handleSearch}/>
       </div>
+      <div className="flex right-0 fixed z-50 md:hidden">
+        <Search onChange={handleSearch}/>
+      </div>
       <div className="space-y-3 mt-36 md:space-y-4 justify-self-center md:justify-self-start md:h-10 md:flex md:flex-wrap md:w-[95%] md:mt-0 gap-x-3">
       {filteredData && filteredData.length > 0 ? (
         filteredData.map((item) => (

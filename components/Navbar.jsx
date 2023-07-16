@@ -37,7 +37,6 @@ const Navbar = () => {
         <span className="text-[43px] font-semibold px-[24px] py-[47px]">
         <Link href={"/"}>Notes</Link>
         </span>
-        <Search />
       </div>
 
       {/* desktop view */}
