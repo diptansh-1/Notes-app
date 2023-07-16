@@ -51,7 +51,7 @@ const Addnote = () => {
             variants={fadeIn("left", "spring", 2, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="bg-yellow-300 h-8 w-8 rounded-full"
+            className="bg-yellow-300 h-8 w-8 rounded-full border border-black"
           ></motion.div>
         </Link>
 
@@ -61,7 +61,7 @@ const Addnote = () => {
             variants={fadeIn("left", "spring", 1.5, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="bg-orange-400 h-8 w-8 rounded-full"
+            className="bg-orange-400 h-8 w-8 rounded-full border border-black"
           ></motion.div>
         </Link>
 
@@ -71,7 +71,7 @@ const Addnote = () => {
             variants={fadeIn("left", "spring", 1, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="bg-violet-400 h-8 w-8 rounded-full"
+            className="bg-violet-400 h-8 w-8 rounded-full border border-black"
           ></motion.div>
         </Link>
 
@@ -81,7 +81,7 @@ const Addnote = () => {
             variants={fadeIn("left", "spring", 0.5, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="bg-cyan-400 h-8 w-8 rounded-full"
+            className="bg-cyan-400 h-8 w-8 rounded-full border border-black"
           ></motion.div>
         </Link>
 
@@ -91,7 +91,7 @@ const Addnote = () => {
             variants={fadeIn("left", "spring", 0, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="bg-lime-400 h-8 w-8 rounded-full"
+            className="bg-lime-400 h-8 w-8 rounded-full border border-black"
           ></motion.div>
         </Link>
       </div>
