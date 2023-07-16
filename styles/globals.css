@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-div{
+    background-color: #FDE047;
+  }
+  
+.custom-divo{
+    background-color: #FB923C;
+  }
+
+.custom-divl{
+    background-color: #A3E635;
+}
+
+.custom-divv{
+    background-color: #A78BFA;
+}
+
+.custom-divc{
+    background-color: #22D3EE;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.root-container {
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.root-container::-webkit-scrollbar {
+  display: none;
+}
