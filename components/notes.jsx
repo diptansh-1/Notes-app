@@ -120,7 +120,7 @@ const Notes = () => {
           ))
         ) : (
           <div className="flex w-full h-[600px] justify-center">
-            <p className="text-[70px] text-gray-300 mt-40">No notes saved</p>
+            <p className="text-[70px] text-gray-300 mt-40">No notes exist</p>
           </div>
         )}
       </div>
