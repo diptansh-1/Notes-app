@@ -43,7 +43,7 @@ const Addnote = () => {
       <div
         className={`h-52 w-72 ${
           phonecolorpallet ? "flex" : "hidden"
-        } justify-center items-center fixed self-end justify-self-end mr-16 -mb-9 gap-x-2 md:hidden`}
+        } justify-center items-center sticky self-end justify-self-end mr-16 -mb-9 gap-x-2 md:hidden`}
       >
         <Link href="/Notes/addnotes">
           <motion.div
