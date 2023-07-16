@@ -62,6 +62,7 @@ export default function AddNotePage() {
           theme: "light",
           });
         // Perform any desired actions upon successful submission
+        router.push("/");
       } else {
         // console.error("Failed to save note:", response.status);
         toast.warn('Failed to save your note', {

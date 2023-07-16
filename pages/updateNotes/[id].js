@@ -61,7 +61,9 @@ const UpdateNote = () => {
       if (response.ok) {
         // Handle success, e.g., show a success message
         console.log('Note updated successfully');
-      } else {
+        router.push(`/Shownotes/${id}`);
+      } 
+      else {
         // Handle error, e.g., show an error message
         console.error('Failed to update note');
       }
