@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../components/search";
-import { useState, useEffect } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { BiSolidPencil } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,6 +11,8 @@ const Notes = () => {
   const [deletedNoteId, setDeletedNoteId] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [noteToDelete, setNoteToDelete] = useState(null);
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -30,7 +29,7 @@ const Notes = () => {
       const response = await fetch("/api/getnotes");
       const { notes } = await response.json();
       setData(notes);
-      setFilteredData(notes); 
+      setFilteredData(notes);
     } catch (error) {
       console.error("Failed to fetch data", error);
     }
@@ -79,41 +78,50 @@ const Notes = () => {
     }
   };
 
+  const handleDeleteConfirmation = (note) => {
+    setShowDeleteConfirmation(true);
+    setNoteToDelete(note);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteConfirmation(false);
+    setNoteToDelete(null);
+  };
+
+  const handleConfirmDelete = () => {
+    if (noteToDelete) {
+      deleteNote(noteToDelete._id);
+    }
+    setShowDeleteConfirmation(false);
+    setNoteToDelete(null);
+  };
+
   return (
     <>
       <div className="hidden md:flex">
-        <Search onChange={handleSearch}/>
+        <Search onChange={handleSearch} />
       </div>
       <div className="flex right-0 fixed z-50 md:hidden">
-        <Search onChange={handleSearch}/>
+        <Search onChange={handleSearch} />
       </div>
       <div className="space-y-3 mt-36 md:space-y-4 justify-self-center md:justify-self-start md:h-10 md:flex md:flex-wrap md:w-[95%] md:mt-0 gap-x-3">
-      {filteredData && filteredData.length > 0 ? (
-        filteredData.map((item) => (
+        {filteredData && filteredData.length > 0 ? (
+          filteredData.map((item) => (
             <div
               key={item._id}
               className={`${item.color} relative flex justify-center items-center py-3 h-[110px] my-4 mx-[16px] md:mx-0 w-[365px] rounded-[10px] overflow-hidden md:w-[200px] md:h-[200px] md:pl-4 `}
             >
-              <Link
-                href={`/Shownotes/${item._id}`}
-                className="focus:outline-none"
-              >
+              <Link href={`/Shownotes/${item._id}`} className="focus:outline-none">
                 <span
                   className={`text-[25px] md:text-[20px] w-[290px] overflow-hidden md:w-[200px] md:h-[180px] md:pt-2 md:pr-2 border-none outline-none focus:ring-0 resize-none`}
                 >
                   {item.title}
                 </span>
               </Link>
-              <div
-                className="absolute top-2 right-2 cursor-pointer"
-                onClick={() => deleteNote(item._id)}
-              >
+              <div className="absolute top-2 right-2 cursor-pointer" onClick={() => handleDeleteConfirmation(item)}>
                 <MdOutlineDeleteOutline className="text-lg text-gray-600 hover:text-black md:text-2xl" />
               </div>
-              <Link
-                href={`/updateNotes/${item._id}`}
-                className="focus:outline-none"
-              >
+              <Link href={`/updateNotes/${item._id}`} className="focus:outline-none">
                 <div className="absolute bottom-4 right-4 cursor-pointer bg-black rounded-full h-8 w-8 flex justify-center items-center">
                   <BiSolidPencil className="text-lg text-white" />
                 </div>
@@ -126,6 +134,28 @@ const Notes = () => {
           </div>
         )}
       </div>
+      {showDeleteConfirmation && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className={`bg-white rounded-lg p-8`}>
+            <p className="text-lg font-semibold mb-4">Delete Confirmation</p>
+            <p className="mb-4">Are you sure you want to delete this note?</p>
+            <div className="flex justify-end">
+              <button
+                className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded mr-2"
+                onClick={handleConfirmDelete}
+              >
+                OK
+              </button>
+              <button
+                className="bg-gray-300 hover:bg-gray-500 px-4 py-2 rounded"
+                onClick={handleCancelDelete}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <ToastContainer
         position="top-center"
         autoClose={500}
