@@ -35,3 +35,26 @@ body {
 .root-container::-webkit-scrollbar {
   display: none;
 }
+
+/* scrollbar style */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #999999 #f5f5f5;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #999999;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #888888;
+}

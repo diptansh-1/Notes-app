@@ -19,6 +19,19 @@ export default function AddNotePage() {
       // Set the color from localStorage if it exists
       setColor(storedColor);
     }
+
+    
+    const rootContainer = document.querySelector('.root-container');
+
+    if (rootContainer) {
+      rootContainer.style.overflow = 'hidden';
+    }
+
+    return () => {
+      if (rootContainer) {
+        rootContainer.style.overflow = '';
+      }
+    };
   }, []);
 
   const setColor = (newColor) => {
@@ -107,7 +120,7 @@ export default function AddNotePage() {
         placeholder="Title"
       />
       <textarea
-        className={`focus:outline-none resize-none placeholder-gray-700 text-lg mx-5 h-[80%] w-full ${color}`}
+        className={`focus:outline-none resize-none placeholder-gray-700 text-lg mx-5 h-[80%] w-full ${color} custom-scrollbar`}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"

@@ -28,6 +28,19 @@ const ShowNotes = () => {
       if (id) {
         fetchNote();
       }
+
+      
+    const rootContainer = document.querySelector('.root-container');
+
+    if (rootContainer) {
+      rootContainer.style.overflow = 'hidden';
+    }
+
+    return () => {
+      if (rootContainer) {
+        rootContainer.style.overflow = '';
+      }
+    };
     }, [id]);
   
     if (!note) {
@@ -47,7 +60,7 @@ const ShowNotes = () => {
             readOnly
           />
           <textarea
-            className={`focus:outline-none resize-none placeholder-gray-700 text-lg mx-5 h-[80%] w-full ${note.color}`}
+            className={`focus:outline-none resize-none placeholder-gray-700 text-lg mx-5 h-[80%] w-full ${note.color} custom-scrollbar`}
             value={note.description}
             placeholder="Description"
             readOnly

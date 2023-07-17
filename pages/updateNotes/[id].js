@@ -32,6 +32,19 @@ const UpdateNote = () => {
     if (id) {
       fetchNote();
     }
+
+    
+    const rootContainer = document.querySelector('.root-container');
+
+    if (rootContainer) {
+      rootContainer.style.overflow = 'hidden';
+    }
+
+    return () => {
+      if (rootContainer) {
+        rootContainer.style.overflow = '';
+      }
+    };
   }, [id]);
 
   const handleTitleChange = (event) => {
@@ -88,7 +101,7 @@ const UpdateNote = () => {
           onChange={handleTitleChange}
         />
         <textarea
-          className={`focus:outline-none resize-none placeholder-gray-700 text-lg mx-5 h-[80%] w-full ${note.color}`}
+          className={`focus:outline-none resize-none placeholder-gray-700 text-lg mx-5 h-[80%] w-full ${note.color} custom-scrollbar`}
           value={updatedNote.description}
           placeholder="Description"
           onChange={handleDescriptionChange}
