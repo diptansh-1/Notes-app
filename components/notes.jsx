@@ -111,11 +111,11 @@ const Notes = () => {
                 href={`/Shownotes/${item._id}`}
                 className="focus:outline-none"
               >
-                <span
-                  className={`text-[25px] md:text-[20px] w-[290px] overflow-hidden md:w-[200px] md:h-[180px] md:pt-2 md:pr-2 border-none outline-none focus:ring-0 resize-none`}
-                >
-                  {item.title}
-                </span>
+                <textarea
+                  readOnly
+                  value={item.title}
+                  className={`text-[25px] md:text-[20px] ${item.color} w-[290px] md:w-[200px] md:h-[180px] md:pt-2 md:pr-2 border-none outline-none focus:ring-0 resize-none cursor-pointer title-container`}
+                />
               </Link>
               <div
                 className="absolute top-2 right-2 cursor-pointer"
