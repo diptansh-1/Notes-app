@@ -110,7 +110,7 @@ export default function AddNotePage() {
         theme="light"
       />
       <input
-        className={`focus:outline-none placeholder-gray-700  ${color} mt-5 mx-5 h-14 w-full`}
+        className={`focus:outline-none placeholder-gray-700  ${color} mt-5 mx-5 h-14 w-full font-bold text-lg`}
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}

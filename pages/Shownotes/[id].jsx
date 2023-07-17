@@ -58,7 +58,7 @@ const ShowNotes = () => {
       </div>
       </Link>
         <input
-          className={`focus:outline-none placeholder-gray-700  ${note.color} mt-5 mx-5 h-14 w-full`}
+          className={`focus:outline-none placeholder-gray-700  ${note.color} mt-5 mx-5 h-14 w-full font-bold text-lg`}
           type="text"
           value={note.title}
           placeholder="Title"

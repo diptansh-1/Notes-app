@@ -92,7 +92,7 @@ const UpdateNote = () => {
       <Addnote />
       <div className={`mx-5 flex flex-row flex-wrap mt-[160px] h-[40rem] w-auto rounded-xl ${note.color} md:w-[90%] md:mt-9 md:h-[42rem]`}>
         <input
-          className={`focus:outline-none placeholder-gray-700  ${note.color} mt-5 mx-5 h-14 w-full`}
+          className={`focus:outline-none placeholder-gray-700  ${note.color} mt-5 mx-5 h-14 w-full font-bold text-lg`}
           type="text"
           value={updatedNote.title}
           placeholder="Title"
