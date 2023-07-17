@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ColorContext } from '../../components/ColorContext';
 import { useRouter } from 'next/router';
 import Addnote from '@/components/addnote';
 
 const UpdateNote = () => {
-  const { color } = useContext(ColorContext);
   const router = useRouter();
   const { id } = router.query;
 

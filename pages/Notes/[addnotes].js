@@ -63,7 +63,6 @@ export default function AddNotePage() {
       });
 
       if (response.ok) {
-        // console.log("Note saved successfully");
         toast.success('Note saved successfully', {
           position: "top-center",
           autoClose: 1000,
@@ -74,10 +73,8 @@ export default function AddNotePage() {
           progress: undefined,
           theme: "light",
           });
-        // Perform any desired actions upon successful submission
         router.push("/");
       } else {
-        // console.error("Failed to save note:", response.status);
         toast.warn('Failed to save your note', {
           position: "top-center",
           autoClose: 1000,
@@ -88,11 +85,9 @@ export default function AddNotePage() {
           progress: undefined,
           theme: "light",
           });
-        // Handle the error accordingly
       }
     } catch (error) {
       console.error("An error occurred:", error);
-      // Handle the error accordingly
     }
   };
 

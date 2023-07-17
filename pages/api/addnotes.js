@@ -10,8 +10,6 @@ export default async function handler(req, res) {
     // Connect to MongoDB
     await connect();
 
-    // Create a new notes
-    // const { name, email, phone } = req.body;
     for(let i = 0; i<req.body.length; i++){
     const notes = new Notes({ 
       title: req.body[i].title,

@@ -46,7 +46,6 @@ const Notes = () => {
       });
 
       if (response.status === 200) {
-        // Note deleted successfully, update the data
         setDeletedNoteId(id);
         toast.success("Note deleted successfully", {
           position: "top-center",
@@ -58,9 +57,7 @@ const Notes = () => {
           progress: undefined,
           theme: "light",
         });
-        // Perform any desired actions upon successful submission
       } else {
-        // console.error("Failed to save note:", response.status);
         toast.warn("Failed to delete the note", {
           position: "top-center",
           autoClose: 1000,
@@ -71,7 +68,6 @@ const Notes = () => {
           progress: undefined,
           theme: "light",
         });
-        // Handle the error accordingly
       }
     } catch (error) {
       console.error("Error deleting note", error);
@@ -111,17 +107,26 @@ const Notes = () => {
               key={item._id}
               className={`${item.color} relative flex justify-center items-center py-3 h-[110px] my-4 mx-[16px] md:mx-0 w-[365px] rounded-[10px] overflow-hidden md:w-[200px] md:h-[200px] md:pl-4 `}
             >
-              <Link href={`/Shownotes/${item._id}`} className="focus:outline-none">
+              <Link
+                href={`/Shownotes/${item._id}`}
+                className="focus:outline-none"
+              >
                 <span
                   className={`text-[25px] md:text-[20px] w-[290px] overflow-hidden md:w-[200px] md:h-[180px] md:pt-2 md:pr-2 border-none outline-none focus:ring-0 resize-none`}
                 >
                   {item.title}
                 </span>
               </Link>
-              <div className="absolute top-2 right-2 cursor-pointer" onClick={() => handleDeleteConfirmation(item)}>
+              <div
+                className="absolute top-2 right-2 cursor-pointer"
+                onClick={() => handleDeleteConfirmation(item)}
+              >
                 <MdOutlineDeleteOutline className="text-lg text-gray-600 hover:text-black md:text-2xl" />
               </div>
-              <Link href={`/updateNotes/${item._id}`} className="focus:outline-none">
+              <Link
+                href={`/updateNotes/${item._id}`}
+                className="focus:outline-none"
+              >
                 <div className="absolute bottom-4 right-4 cursor-pointer bg-black rounded-full h-8 w-8 flex justify-center items-center">
                   <BiSolidPencil className="text-lg text-white" />
                 </div>

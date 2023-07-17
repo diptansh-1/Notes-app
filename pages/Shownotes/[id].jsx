@@ -3,8 +3,6 @@ import { useContext } from "react";
 import { ColorContext } from "../../components/ColorContext";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Notes from "../../models/Notes";
-import mongoose from "mongoose";
 import Addnote from "@/components/addnote";
 import Link from "next/link";
 import { BiSolidPencil } from "react-icons/bi";
@@ -72,7 +70,6 @@ const ShowNotes = () => {
           placeholder="Description"
           readOnly
         />
-        {/* <button className='bg-white mx-auto rounded-3xl w-32 mb-1 border-[2px] border-black hover:bg-gray-200'>Save</button> */}
       </div>
     </>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import Search from "../components/search";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import { useState } from "react";
