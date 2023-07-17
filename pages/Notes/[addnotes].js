@@ -13,14 +13,7 @@ export default function AddNotePage() {
   const router = useRouter();
   const { _id } = router.query;
 
-  useEffect(() => {
-    const storedColor = localStorage.getItem("color");
-    if (storedColor) {
-      // Set the color from localStorage if it exists
-      setColor(storedColor);
-    }
-
-    
+  useEffect(() => {    
     const rootContainer = document.querySelector('.root-container');
 
     if (rootContainer) {
@@ -33,11 +26,20 @@ export default function AddNotePage() {
       }
     };
   }, []);
+  
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = ""; // Needed for Chrome and Firefox
+      router.push("/"); // Redirect to the homepage
+    };
 
-  const setColor = (newColor) => {
-    localStorage.setItem("color", newColor);
-    // Update the context or state with the new color
-  };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [router]);
 
   const handleAddNote = async () => {
     if (title.trim() === "" && description.trim() === "") {
