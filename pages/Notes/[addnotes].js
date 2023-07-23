@@ -97,18 +97,6 @@ export default function AddNotePage() {
     <div
       className={`mx-5 flex flex-row flex-wrap mt-[160px] h-[40rem] w-auto rounded-xl ${color} md:w-[90%] md:mt-9 md:h-[42rem]`}
     >
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <input
         className={`focus:outline-none placeholder-gray-700  ${color} mt-5 mx-5 h-14 w-full font-bold text-lg`}
         type="text"

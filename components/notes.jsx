@@ -5,6 +5,7 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { BiSolidPencil } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { format, parseISO } from "date-fns";
 
 const Notes = () => {
   const [data, setData] = useState([]);
@@ -105,7 +106,7 @@ const Notes = () => {
           filteredData.map((item) => (
             <div
               key={item._id}
-              className={`${item.color} relative flex justify-center items-center py-3 h-[110px] my-4 mx-[16px] md:mx-0 w-[365px] rounded-[10px] overflow-hidden md:w-[200px] md:h-[200px] md:pl-4 `}
+              className={`${item.color} relative flex justify-center items-center py-3 h-[120px] my-4 mx-[16px] md:mx-0 w-[365px] rounded-[10px] overflow-hidden md:w-[200px] md:h-[200px] md:pl-4 `}
             >
               <Link
                 href={`/Shownotes/${item._id}`}
@@ -114,7 +115,7 @@ const Notes = () => {
                 <textarea
                   readOnly
                   value={item.title}
-                  className={`text-[25px] md:text-[20px] ${item.color} w-[290px] md:w-[200px] md:h-[180px] md:pt-2 md:pr-2 border-none outline-none focus:ring-0 resize-none cursor-pointer title-container`}
+                  className={`text-[25px] md:text-[20px] ${item.color} w-[290px] md:w-[200px] md:-mt-9 md:h-[130px] md:pt-2 md:pr-2 border-none outline-none focus:ring-0 resize-none cursor-pointer title-container`}
                 />
               </Link>
               <div
@@ -131,6 +132,9 @@ const Notes = () => {
                   <BiSolidPencil className="text-lg text-white" />
                 </div>
               </Link>
+              <div className="absolute -rotate-90 -left-6 text-sm md:rotate-0 md:bottom-3 md:left-3 text-gray-700 font-semibold">
+              {format(parseISO(item.createdAt), "MMM d, yyyy")}
+                </div>
             </div>
           ))
         ) : (
@@ -161,18 +165,6 @@ const Notes = () => {
           </div>
         </div>
       )}
-      <ToastContainer
-        position="top-center"
-        autoClose={500}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 };

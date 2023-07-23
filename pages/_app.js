@@ -2,6 +2,9 @@ import "@/styles/globals.css";
 import Navbar from "../components/Navbar";
 import { ColorProvider } from "../components/ColorContext";
 import Head from "next/head";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function App({ Component, pageProps }) {
   return (
@@ -17,6 +20,18 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
       </ColorProvider>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Addnote from '@/components/addnote';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdateNote = () => {
   const router = useRouter();
@@ -70,8 +72,16 @@ const UpdateNote = () => {
       });
 
       if (response.ok) {
-        // Handle success, e.g., show a success message
-        console.log('Note updated successfully');
+        toast.success('Note Updated successfully', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
         router.push(`/Shownotes/${id}`);
       } 
       else {
