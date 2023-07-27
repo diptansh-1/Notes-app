@@ -122,13 +122,13 @@ const Notes = () => {
                 className="absolute top-2 right-2 cursor-pointer"
                 onClick={() => handleDeleteConfirmation(item)}
               >
-                <MdOutlineDeleteOutline className="text-lg text-gray-600 hover:text-black md:text-2xl" />
+                <MdOutlineDeleteOutline className="text-lg text-gray-600 hover:text-black md:text-2xl transition-all ease-in-out" />
               </div>
               <Link
                 href={`/updateNotes/${item._id}`}
                 className="focus:outline-none"
               >
-                <div className="absolute bottom-4 right-4 cursor-pointer bg-black rounded-full h-8 w-8 flex justify-center items-center">
+                <div className="absolute bottom-4 right-4 cursor-pointer bg-black rounded-full h-8 w-8 flex justify-center items-center hover:h-[34px] hover:w-[34px] transition-all ease-in-out">
                   <BiSolidPencil className="text-lg text-white" />
                 </div>
               </Link>
